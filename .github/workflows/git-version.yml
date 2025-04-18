@@ -172,31 +172,4 @@ jobs:
           Full changelog: [${{ needs.latest_release.outputs.latestTag }}...${{ needs.git_version.outputs.semVer }}](https://github.com/${{ github.repository }}/compare/${{ needs.latest_release.outputs.latestTag }}...${{ needs.git_version.outputs.semVer }})
         draft: false
         prerelease: false
-
-  publish_pod:
-    name: Publish pod
-    needs: 
-      - tag
-      - release
-    runs-on: macos-latest
-    steps:
-    
-    - name: Checkout
-      uses: actions/checkout@v4
-
-    - name: Delete old Podspec
-      run: |
-        if [ -e DebugSwift.podspec ]; then
-          rm DebugSwift.podspec
-        fi
-
-    - name: Download Artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: artifact
-
-    - run: "pod trunk push DebugSwift.podspec --allow-warnings"
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
-    # - run: "pod trunk me clean-sessions --all"
     
