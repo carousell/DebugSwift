@@ -34,11 +34,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         // Remove comment below to remove specific features and comment DebugSwift.setup() not to double trigger.
         // DebugSwift.setup(hideFeatures: [.interface, .app, .resources, .performance])
+        
+        // If you have New Relic, disable leak detector to prevent conflicts:
+        // debugSwift.setup(disable: [.leaksDetector])
+        
+        print("Hey, DebugSwift is running! 🎉")
+        
         debugSwift
             .setup()
             .show()
 
-        // To fix alamorife `uploadProgress`
+        // To fix Alamofire `uploadProgress`
 //        DebugSwift.Network.delegate = self
         
         // Request push notification permissions for APNS token demo
