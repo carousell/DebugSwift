@@ -23,13 +23,24 @@ class FeatureBaseTests: XCTestCase {
 
     func testDebugSwiftSwizzleFeature_allCases() {
         // Given
-        let expectedCases: [DebugSwiftSwizzleFeature] = [.network, .webSocket, .location, .views, .crashManager, .leaksDetector, .console, .pushNotifications]
+        let expectedCases: [DebugSwiftSwizzleFeature] = [.network, .webSocket, .location, .views, .crashManager, .leaksDetector, .console, .pushNotifications, .swiftUIRender]
 
         // When
         let allCases = DebugSwiftSwizzleFeature.allCases
 
         // Then
         XCTAssertEqual(allCases, expectedCases, "DebugSwiftSwizzleFeature.allCases should return all defined cases")
+    }
+
+    func testDebugSwiftBetaFeature_allCases() {
+        // Given
+        let expectedCases: [DebugSwiftBetaFeature] = [.swiftUIRenderTracking]
+
+        // When
+        let allCases = DebugSwiftBetaFeature.allCases
+
+        // Then
+        XCTAssertEqual(allCases, expectedCases, "DebugSwiftBetaFeature.allCases should return all defined cases")
     }
 
     func testDebugSwiftFeatures_deprecated() {

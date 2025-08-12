@@ -38,4 +38,17 @@ final class UIViewTests: XCTestCase {
         // Then
         XCTAssertNotNil(view, "View should be initialized")
     }
+    
+    func testClearSwiftUIRenderStats() {
+        // Given
+        UIView.enableSwiftUIRenderTracking()
+        
+        // When & Then - should not crash
+        UIView.clearSwiftUIRenderStats()
+        
+        // Cleanup
+        UIView.disableSwiftUIRenderTracking()
+    }
 }
+
+

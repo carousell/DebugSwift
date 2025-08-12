@@ -29,6 +29,12 @@ public enum DebugSwiftSwizzleFeature: String, CaseIterable {
     case leaksDetector
     case console
     case pushNotifications
+    case swiftUIRender
+}
+
+@MainActor
+public enum DebugSwiftBetaFeature: String, CaseIterable {
+    case swiftUIRenderTracking
 }
 
 @available(*, deprecated, renamed: "DebugSwiftFeature", message: "Use now DebugSwiftFeature")
